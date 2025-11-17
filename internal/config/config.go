@@ -3,22 +3,12 @@ package config
 import (
 	"errors"
 	"sync"
-
-	"golang.org/x/oauth2"
 )
 
 type (
 	Config struct {
 		Google   GoogleSheetsConfig
 		Telegram TelegramConfig
-	}
-	GoogleSheetsConfig struct {
-		OAuthConfig *oauth2.Config
-		TokenStore  TokenStore
-	}
-	TelegramConfig struct {
-		AppID   int
-		AppHash string
 	}
 )
 

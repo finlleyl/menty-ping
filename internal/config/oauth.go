@@ -22,6 +22,11 @@ type TokenStore interface {
 	Save(*oauth2.Token) error
 }
 
+type GoogleSheetsConfig struct {
+	OAuthConfig *oauth2.Config
+	TokenStore  TokenStore
+}
+
 type fileTokenStore struct {
 	path string
 }

@@ -15,8 +15,8 @@ import (
 )
 
 type App struct {
-	Logger        *zap.SugaredLogger
-	SheetsService *sheetsservice.Service
+	Logger         *zap.SugaredLogger
+	SheetsService  *sheetsservice.Service
 	TelegramClient *telegramclient.Client
 }
 
@@ -55,7 +55,7 @@ func initServ(ctx context.Context) (*App, error) {
 	}
 	logger.Infow("sheets service initialized")
 
-	telegramClient, err := telegramclient.NewTelegramClient(ctx, cfg.Telegram)
+	telegramClient, err := telegramclient.NewTelegramClient(cfg.Telegram)
 	if err != nil {
 		logger.Errorw("failed to initialize telegram client", "error", err)
 		return nil, fmt.Errorf("init telegram client: %w", err)
@@ -63,8 +63,8 @@ func initServ(ctx context.Context) (*App, error) {
 	logger.Infow("telegram client initialized")
 
 	return &App{
-		Logger:        logger,
-		SheetsService: sheetsService,
+		Logger:         logger,
+		SheetsService:  sheetsService,
 		TelegramClient: telegramClient,
 	}, nil
 }
